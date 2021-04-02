@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "cmsis_os.h": "c",
+        "usart.h": "c",
+        "cstdio": "c",
+        "stm_log.h": "c"
+    }
+}
