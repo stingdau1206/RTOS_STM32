@@ -57,7 +57,7 @@ static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
-void TaskAboveNormal(void const *param);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -135,8 +135,6 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(Task1, TaskAboveNormal, osPriorityAboveNormal, 0, 128);
-  TaskAboveNormalHandle = osThreadCreate(osThread(Task1), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -241,24 +239,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void TaskAboveNormal(void const *param)
-{
-  int j = 0;
-  while(1)
-  {
-    printf("Hello from AboveNormal Task %d\n",j);
-    osDelay(1000);
-    j++;
-    if(j == 5)
-    {
-      vTaskSuspend(NULL);
-    }
-    if(j == 7)
-    {
-      vTaskDelete(defaultTaskHandle);
-    }
-  }
-}
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -272,14 +253,10 @@ void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for(int i = 0; i < 20 ; i++)
+  for(;;)
   {
-		printf("Hello from Normal Task %d\n",i);
+		printf("Hello DevIoT \n");
     osDelay(500);
-    if ( i == 13)
-    {
-      vTaskResume(TaskAboveNormalHandle);
-    }
   }
   //osThreadTerminate(NULL);
   /* USER CODE END 5 */

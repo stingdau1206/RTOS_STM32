@@ -1,0 +1,15 @@
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
+delay\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+delay\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+delay\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+delay\timers.o: ../Core/Inc/FreeRTOSConfig.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+delay\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
