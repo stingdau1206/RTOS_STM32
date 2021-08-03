@@ -9,10 +9,10 @@
   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software component is licensed by ST under Ultimate Liberty license
+  * SLA0044, the "License"; You may not use this file except in compliance with
+  * the License. You may obtain a copy of the License at:
+  *                             www.st.com/SLA0044
   *
   ******************************************************************************
   */
@@ -55,7 +55,7 @@ static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
-void AboveNormalTask(void const *paramerter);
+void AboveNormalTask(void const *arg);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -133,8 +133,8 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(Task1, AboveNormalTask, osPriorityAboveNormal, 0, 128);
-  AboveNormalHandle = osThreadCreate(osThread(Task1), NULL);
+  osThreadDef(Task2, AboveNormalTask, osPriorityAboveNormal, 0, 128);
+  AboveNormalHandle = osThreadCreate(osThread(Task2), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -239,23 +239,19 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void AboveNormalTask(void const *paramerter)
+void AboveNormalTask(void const *arg)
 {
-  uint8_t j = 0;
-  while(1)
+  int j = 0;
+  while (1)
   {
-    printf("Hello from AboveNormal Task %d\n",j);
-    j++;
+    printf("Hello form AboveNormal Task %d\n",j);
     osDelay(1000);
-    if(j == 5)
-    {
-      vTaskSuspend(NULL);
-    }
-    if (j == 8)
-    {
-      vTaskDelete(defaultTaskHandle);
-    }
+    j++;
+		if( j == 10)
+		//osThreadResume(defaultTaskHandle);
+    vTaskResume(defaultTaskHandle);
   }
+  
 }
 /* USER CODE END 4 */
 
@@ -270,16 +266,14 @@ void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for(int i = 0; i < 20; i++)
+  for(int i = 0; i < 100; i++)
   {
-    printf("Hello form Default Task %d\n",i);
+    printf("Hello form Defaut Task %d\n",i);
     osDelay(500);
-    if(i == 13)
-    {
-      vTaskResume(AboveNormalHandle);
-    }
+    if(i == 10)
+    //osThreadSuspend(NULL);
+    vTaskSuspend(NULL);
   }
-  //osThreadTerminate(NULL);
   /* USER CODE END 5 */
 }
 

@@ -9,10 +9,10 @@
   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdio.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,7 +55,7 @@ static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
-void AboveNormalTask(void const *parameter);
+void AboveNormalTask(void const *arg);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -133,8 +133,8 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(Task1, AboveNormalTask, osPriorityAboveNormal, 0, 128);
-  AboveNormalHandle = osThreadCreate(osThread(Task1), NULL);
+  osThreadDef(Task2, AboveNormalTask, osPriorityAboveNormal, 0, 128);
+  AboveNormalHandle = osThreadCreate(osThread(Task2), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -239,17 +239,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void AboveNormalTask(void const *parameter)
+void AboveNormalTask(void const *arg)
 {
-  uint32_t StartTime = xTaskGetTickCount();
-  while (1)
+  uint32_t startTime = xTaskGetTickCount();
+  while(1)
   {
-    printf("Hello from AboveNormal Task\n");
-		osDelay(500);
-    osDelayUntil(&StartTime, 300);
-    /* code */
+    printf("Hello form Above Normal Task \n");
+    osDelay(500);
+    osDelayUntil(&startTime ,300);
+		//osDelay(500);
   }
-  
 }
 /* USER CODE END 4 */
 
@@ -266,8 +265,8 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    printf("Hello from Default Task\n");
-		HAL_Delay(500);
+    printf("Hello from Default Task \n");
+    HAL_Delay(500);
   }
   /* USER CODE END 5 */
 }

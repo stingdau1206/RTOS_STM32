@@ -1,0 +1,15 @@
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
+semaphore\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+semaphore\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+semaphore\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+semaphore\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+semaphore\queue.o: ../Core/Inc/FreeRTOSConfig.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+semaphore\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h

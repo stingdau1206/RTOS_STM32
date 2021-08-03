@@ -1,0 +1,12 @@
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+semaphore\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+semaphore\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+semaphore\port.o: ../Core/Inc/FreeRTOSConfig.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+semaphore\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
